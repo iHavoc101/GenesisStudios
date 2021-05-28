@@ -16,7 +16,7 @@ end
 function Signal:Fire(...)
 	self._args = {...}
 	self._argCount = select("#", ...)
-	
+
 	self._bindable:Fire()
 end
 
@@ -24,7 +24,7 @@ function Signal:Connect(handler)
 	if not (type(handler) == "function") then
 		error(("connect(%s)"):format(typeof(handler)), 2)
 	end
-	
+
 	return self._bindable.Event:Connect(function()
 		handler(unpack(self._args,1,self._argCount))
 	end)
