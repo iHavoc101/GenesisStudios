@@ -174,20 +174,16 @@ end
 function Module.SetProgress(Value)
     Value = math.clamp(Value, 1, 100)
 
+    local Color = Color3.fromRGB(255, 150, 150):Lerp(Color3.fromRGB(115, 255, 180), Value / 100)
+    TweenService:Create(Square, TweenInfo.new(0.25), {ImageColor3 = Color}):Play()
+    TweenService:Create(Square.Shadow, TweenInfo.new(0.25), {ImageColor3 = Color}):Play()
+
     local Percent = math.clamp(Value * 3.6, 0, 360)
     local Tween1 = TweenService:Create(Fill1.UIGradient, TweenInfo.new(0.25), {Rotation = math.clamp(Percent, 180, 360)})
     local Tween2 = TweenService:Create(Fill2.UIGradient, TweenInfo.new(0.25), {Rotation = math.clamp(Percent, 0, 180)})
     Tween2:Play()
-    
-    local Connection = nil
-    Connection = Tween2.Completed:Connect(function()
-        Connection:Disconnect()
-        Tween1:Play()
-    end)
-
-    local Color = Color3.fromRGB(255, 150, 150):Lerp(Color3.fromRGB(115, 255, 180), Value / 100)
-    Square.ImageColor3 = Color
-	Square.Shadow.ImageColor3 = Color
+    Tween2.Completed:Wait()
+    Tween1:Play()
 end
 
 function Module:Destroy()
