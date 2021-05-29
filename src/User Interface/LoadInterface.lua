@@ -185,9 +185,13 @@ function Module.SetProgress(Value)
         Tween1:Play()
     end)
 
-    local Color = Color3.fromRGB(150, 150, 150):Lerp(Color3.fromRGB(115, 255, 180), Value / 100)
+    local Color = Color3.fromRGB(255, 150, 150):Lerp(Color3.fromRGB(115, 255, 180), Value / 100)
     Square.ImageColor3 = Color
 	Square.Shadow.ImageColor3 = Color
+end
+
+function Module.Destroy()
+    ScreenGui:Destroy()
 end
 
 return Module
