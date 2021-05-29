@@ -43,11 +43,11 @@ pcall(writefile, "Genesis Studios/User Interface/LoadInterface.lua", RetrieveSou
 
 -- Modules --
 LoadInterface.SetStatus("Building Modules...")
-LoadInterface.SetProgress(60)
+LoadInterface.SetProgress(50)
 
 -- Libraries --
 LoadInterface.SetStatus("Building Libraries...")
-LoadInterface.SetProgress(75)
+LoadInterface.SetProgress(70)
 pcall(writefile, "Genesis Studios/Libraries/DateFormat.lua", RetrieveSource("Libraries/DateFormat.lua"))
 pcall(writefile, "Genesis Studios/Libraries/SyncedPoller.lua", RetrieveSource("Libraries/SyncedPoller.lua"))
 
