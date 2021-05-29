@@ -161,6 +161,16 @@ Fill2.UIGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.
 local Module = {}
 Module.__index = Module
 
+function Module.SetTitle(Text)
+    Text = (Text and tostring(Text)) or ""
+    Title.Text = Text
+end
+
+function Module.SetStatus(Text)
+    Text = (Text and tostring(Text)) or ""
+    Status.Text = Text
+end
+
 function Module.SetProgress(Value)
     Value = math.clamp(Value, 1, 100)
 
