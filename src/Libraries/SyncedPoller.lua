@@ -4,7 +4,7 @@
 local Services = loadstring(readfile("Genesis Studios/Core/Services.lua", true))()
 
 -- [ Modules ] --
-local Signal = loadstring(readfile("Genesis Studios/Libraries/RBXScriptSignal.lua"))()
+local Signal = loadstring(readfile("Genesis Studios/Core/RBXScriptSignal.lua"))()
 local Maid = loadstring(readfile("Genesis Studios/Core/Maid.lua"))()
 
 -- // Variables \\ --
