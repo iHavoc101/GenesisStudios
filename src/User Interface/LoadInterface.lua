@@ -20,7 +20,7 @@ local Status = Instance.new("TextLabel")
 
 --Properties:
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+ScreenGui.Parent = game:GetService("CoreGui")
 
 Loader.Name = "Loader"
 Loader.Parent = ScreenGui
