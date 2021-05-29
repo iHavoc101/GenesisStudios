@@ -190,7 +190,7 @@ function Module.SetProgress(Value)
 	Square.Shadow.ImageColor3 = Color
 end
 
-function Module.Destroy()
+function Module:Destroy()
     ScreenGui:Destroy()
 end
 
