@@ -20,7 +20,6 @@ local Status = Instance.new("TextLabel")
 
 --Properties:
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.Parent = game:GetService("CoreGui")
 
 Loader.Name = "Loader"
 Loader.Parent = ScreenGui
@@ -89,7 +88,7 @@ Square.Position = UDim2.new(0.5, -15, 0.5, -15)
 Square.Size = UDim2.new(0, 30, 0, 30)
 Square.SizeConstraint = Enum.SizeConstraint.RelativeXX
 Square.Image = "rbxassetid://5554237731"
-Square.ImageColor3 = Color3.fromRGB(116, 255, 181)
+Square.ImageColor3 = Color3.fromRGB(255, 150, 150)
 Square.ScaleType = Enum.ScaleType.Slice
 Square.SliceCenter = Rect.new(3, 3, 297, 297)
 
@@ -99,7 +98,7 @@ Shadow_2.BackgroundTransparency = 1
 Shadow_2.Position = UDim2.new(0, -15, 0, -15)
 Shadow_2.Size = UDim2.new(1, 30, 1, 30)
 Shadow_2.Image = "rbxassetid://5554236805"
-Shadow_2.ImageColor3 = Color3.fromRGB(116, 255, 181)
+Shadow_2.ImageColor3 = Color3.fromRGB(255, 150, 150)
 Shadow_2.ScaleType = Enum.ScaleType.Slice
 Shadow_2.SliceCenter = Rect.new(23, 23, 277, 277)
 
@@ -157,6 +156,11 @@ Fill2.UIGradient.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0
 Fill1.UIGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.499, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))})
 Fill2.UIGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.499, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))})
 
+Fill1.UIGradient.Rotation = 0
+Fill2.UIGradient.Rotation = 0
+
+ScreenGui.Parent = game:GetService("CoreGui")
+
 -- // MainModule \\ --
 local Module = {}
 Module.__index = Module
@@ -176,7 +180,7 @@ function Module.SetProgress(Value)
 
     local Color = Color3.fromRGB(255, 150, 150):Lerp(Color3.fromRGB(115, 255, 180), Value / 100)
     TweenService:Create(Square, TweenInfo.new(0.25), {ImageColor3 = Color}):Play()
-    TweenService:Create(Square.Shadow, TweenInfo.new(0.25), {ImageColor3 = Color}):Play()
+    TweenService:Create(Shadow_2, TweenInfo.new(0.25), {ImageColor3 = Color}):Play()
 
     local Percent = math.clamp(Value * 3.6, 0, 360)
     local Tween1 = TweenService:Create(Fill1.UIGradient, TweenInfo.new(0.25), {Rotation = math.clamp(Percent, 180, 360)})
